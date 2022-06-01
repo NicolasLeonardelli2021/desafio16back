@@ -1,1 +1,2 @@
 {"level":"error","message":"Error al conectar con la base de datos"}
+{"level":"warn","message":"GET /algo"}

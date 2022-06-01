@@ -3,6 +3,7 @@ const app = express()
 let {config,mongo_db,facebook} = require("./config");
 let controller = require("./components/controllers/controller")
 let moment = require("moment")
+const router = express.Router();
 let cors = require("cors")
 let path = require('path')
 let {Server: HttpServer} = require('http')
@@ -295,6 +296,13 @@ app.get("/api/randoms", gzip(),(req,res,next)=>{
     })
      
 })
+
+router.all("*", function(req,res,next){
+    winston.warn(`GET ${req.path}`);
+    res.send("La ruta no existe");
+})
+
+app.use(router);
 
 if(modoServer == "CLUSTER"){
 if(cluster.isMaster){
