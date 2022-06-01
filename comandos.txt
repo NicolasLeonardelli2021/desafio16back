@@ -1,0 +1,11 @@
+cd node
+EJECUTAR MODO FORK Y MODO CLUSTER
+npm run dev 8080 FORK
+npm run dev 8080 CLUSTER
+
+EJECUTAR UTILIZANDO FOREVER
+forever index.js 8080 CLUSTER
+
+EJECUTAR SERVIDOR UTILIZANDO PM2
+pm2 start index.js --name="appFork" 8080
+pm2 start index.js --name="appCluster" --watch -i max  8081
